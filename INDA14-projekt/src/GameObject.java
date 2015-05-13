@@ -6,13 +6,16 @@ public class GameObject {
 	public int VALUE = 0;
 	private Image image;
 	private GameObject next;
+	private boolean ockupide;
+	private int xpos;
+	private int ypos;
+	public GameObject(int posx, int posy){
+		xpos = posx;
+		ypos = posy;
+	}
 	
-	
-	public boolean hasNext(){
-		if(next != null){
-			return true;
-		}else
-			return false;
+	public boolean isOkcupied(){
+		return ockupide;
 	}
 	
 	public GameObject getNext(){
@@ -32,4 +35,5 @@ public class GameObject {
 		}
 							
 	}
+	
 }
