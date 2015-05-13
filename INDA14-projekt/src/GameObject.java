@@ -9,16 +9,16 @@ public class GameObject {
 	private boolean ockupide;
 	private static int xpos;
 	private static int ypos;
-	private int xcordinate;
-	private int ycordinate;
+	public int xcordinate;
+	public int ycordinate;
 	
 	
 	
 	public GameObject(int posx, int posy){
 		xpos = posx;
 		ypos = posy;
-		xcordinate = 290 + 60*posx;
-		ycordinate = 450 + 50*posy;
+		xcordinate = 230 + 60*posx;
+		ycordinate = 400 + 50*posy;
 	}
 	
 	public boolean isOkcupied(){
@@ -29,9 +29,6 @@ public class GameObject {
 		return next;
 	}
 	
-	private void addImage(int randomInt) {
-		
-	}
 	
 	public void move(){
 		if(next == null){

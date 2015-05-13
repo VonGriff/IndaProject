@@ -1,10 +1,17 @@
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
+import java.util.Random;
 
 public class Play extends BasicGameState{
 
 	Image playingfield;
+	Random random;
 	private GameObject previous = null;
+	private GameObject node;
+	private GameObject col1;
+	private GameObject col2;
+	private GameObject col3;
+	private GameObject col4;
 	
 	public Play(int state){
 		
@@ -13,16 +20,18 @@ public class Play extends BasicGameState{
 		playingfield = new Image("pics/playingfield.png");
 	}
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
+		
 		g.drawImage(playingfield, 200, 400);
 		for(int i = 0; i<4; i++){ 
-		for(int b =0; b<9; b++){
-		g.drawRect(230, 400, 60 + 60*i, 50 + 50*b);
-		GameObject node = new GameObject(i,b);
+			for(int b =0; b<9; b++){
+				GameObject obj = new GameObject(i,b);
+				Image img = new Image("pics/suits-diamond.png");
+				g.drawImage(img, obj.xcordinate, obj.ycordinate);
 		if(previous != null){
-			previous.next = node;
-			previous = node;
+			previous.next = obj;
+			previous = obj;
 		}else
-		previous = node; //Should only happen once per column. 
+		previous = obj; //Should only happen once per column. 
 		}
 		}
 		//pixelstorlek för de små rutorna x = 60 y = 50.
@@ -38,4 +47,6 @@ public class Play extends BasicGameState{
 	public int getID(){
 		return 1;
 	}
+	
+
 }
