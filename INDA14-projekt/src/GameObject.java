@@ -4,14 +4,21 @@ import org.newdawn.slick.*;
 public class GameObject {
 	
 	public int VALUE = 0;
-	private Image image;
-	private GameObject next;
+	public Image image;
+	public GameObject next;
 	private boolean ockupide;
-	private int xpos;
-	private int ypos;
+	private static int xpos;
+	private static int ypos;
+	private int xcordinate;
+	private int ycordinate;
+	
+	
+	
 	public GameObject(int posx, int posy){
 		xpos = posx;
 		ypos = posy;
+		xcordinate = 290 + 60*posx;
+		ycordinate = 450 + 50*posy;
 	}
 	
 	public boolean isOkcupied(){
