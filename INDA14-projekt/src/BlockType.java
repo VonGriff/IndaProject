@@ -1,0 +1,3 @@
+public enum BlockType{
+	JOKERTOP, JOKERBOT, SPADE, HEART, DIAMOND, CLUBS
+}

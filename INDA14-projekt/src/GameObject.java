@@ -3,41 +3,40 @@ import org.newdawn.slick.*;
 
 public class GameObject {
 	
-	public int VALUE = 0;
-	public Image image;
-	public GameObject next;
-	private boolean ockupide;
-	private static int xpos;
-	private static int ypos;
-	public int xcordinate;
-	public int ycordinate;
+	private int value = 5;
+	private Image image;
+	private BlockType type;
 	
-	
-	
-	public GameObject(int posx, int posy){
-		xpos = posx;
-		ypos = posy;
-		xcordinate = 230 + 60*posx;
-		ycordinate = 400 + 50*posy;
+	public GameObject(Image img, BlockType type){
+		this.image = img;
+		this.type = type;
 	}
 	
-	public boolean isOkcupied(){
-		return ockupide;
+	public int getValue(){
+		return value;
 	}
 	
-	public GameObject getNext(){
-		return next;
+	public Image getImage() {
+		return image;
 	}
 	
-	
-	public void move(){
-		if(next == null){
-			next.image = this.image;
-			next.VALUE = this.VALUE;
-			this.image = null;
-			this.VALUE = 0;
+	public int testColour(BlockType type){
+		
+		switch(type) {
+		case JOKERTOP:
+			return 0;
+		case JOKERBOT:
+			return 1;
+		case HEART :
+			return 2;
+		case SPADE :
+			return 3;
+		case CLUBS :
+			return 4;
+		case DIAMOND :
+			return 5;
 		}
-							
+		return -1; //Should never happen.
 	}
-	
+		
 }

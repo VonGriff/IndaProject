@@ -1,5 +1,9 @@
+import org.lwjgl.input.Keyboard;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
+import org.newdawn.slick.Input;
+import java.awt.RenderingHints.Key;
+import java.awt.event.KeyEvent;
 import java.util.Random;
 
 public class Play extends BasicGameState{
@@ -12,37 +16,33 @@ public class Play extends BasicGameState{
 	private GameObject col2;
 	private GameObject col3;
 	private GameObject col4;
-	
+	private GameBoard gameboard = new GameBoard();
 	public Play(int state){
 		
 	}
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
-		playingfield = new Image("pics/playingfield.png");
+		Image image3 = new Image("pics/suits-diamond.png");
+		GameObject dummy3 = new GameObject(image3, BlockType.DIAMOND);
+		gameboard.Insert(0, 1, dummy3);
+		
+	
 	}
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
-		
-		g.drawImage(playingfield, 200, 400);
-		for(int i = 0; i<4; i++){ 
-			for(int b =0; b<9; b++){
-				GameObject obj = new GameObject(i,b);
-				Image img = new Image("pics/suits-diamond.png");
-				g.drawImage(img, obj.xcordinate, obj.ycordinate);
-		if(previous != null){
-			previous.next = obj;
-			previous = obj;
-		}else
-		previous = obj; //Should only happen once per column. 
-		}
-		}
-		//pixelstorlek för de små rutorna x = 60 y = 50.
-	}
-	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
-		
+		gameboard.draw(g);
 	}
 	
-	public void createBackendField() {
+	private int timeSinceMove = 0;
+	
+	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
+		timeSinceMove += delta;
 		
+		if(timeSinceMove >= 1000) {
+			timeSinceMove = 0;
+			gameboard.moveObjects();
+		}
 	}
+	
+	
 	
 	public int getID(){
 		return 1;
