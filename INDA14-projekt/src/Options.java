@@ -3,6 +3,8 @@ import org.newdawn.slick.state.*;
 public class Options extends BasicGameState{
 	Image pic1;
 
+	//Ska byta bild bara för test
+	
 	public Options(int state){
 	
 	}
