@@ -55,7 +55,7 @@ public class Menu extends BasicGameState{
 			if(Mouse.isButtonDown(0)){
 				System.exit(0);
 			
-		}
+			}
 		}
 	}
 	public int getID(){

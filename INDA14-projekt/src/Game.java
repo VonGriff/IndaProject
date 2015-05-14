@@ -14,12 +14,14 @@ public class Game extends StateBasedGame{
 		this.addState(new Play(play));
 		this.addState(new Options(options));
 	}
+	
 	public void initStatesList(GameContainer gc)throws SlickException{
 		this.getState(menu).init(gc, this);
 		this.getState(play).init(gc, this);
 		this.getState(options).init(gc, this);
 		this.enterState(menu);
 	}
+	
 	public static void main(String[] args){
 		AppGameContainer appgc;
 		try{

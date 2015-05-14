@@ -17,16 +17,17 @@ public class Play extends BasicGameState{
 	private GameObject col3;
 	private GameObject col4;
 	private GameBoard gameboard = new GameBoard();
+	
 	public Play(int state){
 		
 	}
+	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
 		Image image3 = new Image("pics/suits-diamond.png");
 		GameObject dummy3 = new GameObject(image3, BlockType.DIAMOND);
 		gameboard.Insert(0, 1, dummy3);
-		
-	
 	}
+	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
 		gameboard.draw(g);
 	}
