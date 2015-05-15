@@ -26,7 +26,10 @@ public class Game extends StateBasedGame{
 		AppGameContainer appgc;
 		try{
 			appgc = new AppGameContainer(new Game(gameName));
-			appgc.setDisplayMode(1920, 1080, false);
+			appgc.setDisplayMode(800, 600, false);
+			appgc.setShowFPS(false);
+			appgc.setVSync(true);
+			appgc.setAlwaysRender(true);
 			appgc.start();
 		}catch(SlickException e){
 			e.printStackTrace();
