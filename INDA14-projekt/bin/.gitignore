@@ -4,3 +4,7 @@
 /Options.class
 /Play.class
 /pics/
+/GameObject$Type.class
+/GameBoard.class
+/GameObject$BlockType.class
+/BlockType.class

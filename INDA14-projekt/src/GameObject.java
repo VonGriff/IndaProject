@@ -3,33 +3,40 @@ import org.newdawn.slick.*;
 
 public class GameObject {
 	
-	public int VALUE = 0;
+	private int value = 5;
 	private Image image;
-	private GameObject next;
+	private BlockType type;
 	
-	
-	public boolean hasNext(){
-		if(next != null){
-			return true;
-		}else
-			return false;
+	public GameObject(Image img, BlockType type){
+		this.image = img;
+		this.type = type;
 	}
 	
-	public GameObject getNext(){
-		return next;
+	public int getValue(){
+		return value;
 	}
 	
-	private void addImage(int randomInt) {
+	public Image getImage() {
+		return image;
+	}
+	
+	public int testColour(BlockType type){
 		
-	}
-	
-	public void move(){
-		if(next == null){
-			next.image = this.image;
-			next.VALUE = this.VALUE;
-			this.image = null;
-			this.VALUE = 0;
+		switch(type) {
+		case JOKERTOP:
+			return 0;
+		case JOKERBOT:
+			return 1;
+		case HEART :
+			return 2;
+		case SPADE :
+			return 3;
+		case CLUBS :
+			return 4;
+		case DIAMOND :
+			return 5;
 		}
-							
+		return -1; //Should never happen.
 	}
+		
 }
