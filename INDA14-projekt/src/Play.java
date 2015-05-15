@@ -26,7 +26,7 @@ public class Play extends BasicGameState{
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
 		Image image3 = new Image("pics/suits-diamond.png");
 		GameObject dummy3 = new GameObject(image3, BlockType.DIAMOND);
-		gameboard.Insert(0, 1, dummy3);
+		gameboard.Insert(1, 0, dummy3);
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
