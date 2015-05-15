@@ -17,7 +17,7 @@ public class GameBoard {
 		g.drawImage(playingfield, 200, 400);
 		
 		for(int i = 0; i<gameboard.length; i++) { 
-			for(int b =0; b<gameboard[0].length; b++) { //Ändra b till 1 för att ha en rad som förblir orörd.
+			for(int b =0; b<gameboard[0].length; b++) { //ï¿½ndra b till 1 fï¿½r att ha en rad som fï¿½rblir orï¿½rd.
 				GameObject currentObject = gameboard[i][b];
 				if(currentObject != null) {
 					g.drawImage(currentObject.getImage(), 230+i*60, 400+b*50);

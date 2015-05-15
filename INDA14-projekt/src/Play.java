@@ -9,6 +9,7 @@ import java.util.Random;
 public class Play extends BasicGameState{
 
 	Image playingfield;
+	Image player;
 	Random random;
 	private GameObject previous = null;
 	private GameObject node;
