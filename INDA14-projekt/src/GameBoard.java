@@ -12,14 +12,14 @@ public class GameBoard {
 		
 	}
 	/**
-	 * Ritar upp spelbrädet samt objekten på spelbrädet.
-	 * Itererar över hela spelbrädet och tittar på varje objekt,
-	 * om objektet inte är null så ritar den upp bilden på den positionen
-	 * som objektet är på.
+	 * Ritar upp spelbrï¿½det samt objekten pï¿½ spelbrï¿½det.
+	 * Itererar ï¿½ver hela spelbrï¿½det och tittar pï¿½ varje objekt,
+	 * om objektet inte ï¿½r null sï¿½ ritar den upp bilden pï¿½ den positionen
+	 * som objektet ï¿½r pï¿½.
 	 * 
-	 * att b = 1 i den inre for loopen ger oss en rad över denna som kan agera som en "spawn" punkt,
-	 * för nya objekt. Där objekten sitter och väntar tills inga objekt är i rörelse längre, och i sådana fall
-	 * sätter den de nya objekten i rörelse.
+	 * att b = 1 i den inre for loopen ger oss en rad ï¿½ver denna som kan agera som en "spawn" punkt,
+	 * fï¿½r nya objekt. Dï¿½r objekten sitter och vï¿½ntar tills inga objekt ï¿½r i rï¿½relse lï¿½ngre, och i sï¿½dana fall
+	 * sï¿½tter den de nya objekten i rï¿½relse.
 	 * @param g
 	 * @throws SlickException
 	 */
@@ -28,11 +28,9 @@ public class GameBoard {
 		g.drawImage(playingfield, 40, 80);
 		
 		for(int i = 0; i<gameboard.length; i++) { 
-<<<<<<< HEAD
-			for(int b =0; b<gameboard[0].length; b++) { //ï¿½ndra b till 1 fï¿½r att ha en rad som fï¿½rblir orï¿½rd.
-=======
-			for(int b =1; b<gameboard[0].length; b++) { //Ändra b till 1 för att ha en rad som förblir orörd
->>>>>>> f2c493e7d37deba7e214a1e0c59fea11be094680
+
+			for(int b =1; b<gameboard[0].length; b++) { //ï¿½ndra b till 1 fï¿½r att ha en rad som fï¿½rblir orï¿½rd
+
 				GameObject currentObject = gameboard[i][b];
 				if(currentObject != null) {
 					g.drawImage(currentObject.getImage(), 60+i*60, 80+b*50);
@@ -45,10 +43,10 @@ public class GameBoard {
 		gameboard[col][row] = object;
 	}
 	/**
-	 * Itererar över hela spelbrädets matris och ser vilka objekt som finns och ifall
-	 * de har objekt under sig, är det ett null objekt under ett icke null objekt så flyttar den det objektet
-	 * en rad neråt. Den gör detta tills dess att den kommit till slutet på brädet, eller den stöter ihop
-	 * med ett annat objekt. Detta är kollisionshanteraren i detta program.
+	 * Itererar ï¿½ver hela spelbrï¿½dets matris och ser vilka objekt som finns och ifall
+	 * de har objekt under sig, ï¿½r det ett null objekt under ett icke null objekt sï¿½ flyttar den det objektet
+	 * en rad nerï¿½t. Den gï¿½r detta tills dess att den kommit till slutet pï¿½ brï¿½det, eller den stï¿½ter ihop
+	 * med ett annat objekt. Detta ï¿½r kollisionshanteraren i detta program.
 	 */
 	public void moveObjects() {
 		for(int c = 0; c < gameboard.length; c++) {
