@@ -7,6 +7,7 @@ public class GameObject {
 	private Image image;
 	private BlockType type;
 	
+	
 	public GameObject(Image img, BlockType type){
 		this.image = img;
 		this.type = type;

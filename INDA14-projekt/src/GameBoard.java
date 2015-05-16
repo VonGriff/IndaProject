@@ -2,11 +2,14 @@ import org.newdawn.slick.*;
 
 import java.util.Random;
 
-
 public class GameBoard {
 
 	private GameObject[][] gameboard = new GameObject[4][9];
 	private Image playingfield;
+	private int objectsInMovement = 0;
+	private Random random;
+	
+	
 	
 	public GameBoard(){
 		
@@ -29,7 +32,7 @@ public class GameBoard {
 		
 		for(int i = 0; i<gameboard.length; i++) { 
 
-			for(int b =1; b<gameboard[0].length; b++) { //ï¿½ndra b till 1 fï¿½r att ha en rad som fï¿½rblir orï¿½rd
+			for(int b =0; b<gameboard[0].length; b++) { //ï¿½ndra b till 1 fï¿½r att ha en rad som fï¿½rblir orï¿½rd
 
 				GameObject currentObject = gameboard[i][b];
 				if(currentObject != null) {
@@ -39,8 +42,34 @@ public class GameBoard {
 		}
 	}
 	
-	public void Insert(int row, int col, GameObject object){
+	public void Insert(int row, int col, GameObject object) throws SlickException{
 		gameboard[col][row] = object;
+	}
+	
+	/**
+	 * Skapar 2 figurer och ser till att de inte är på varandra.
+	 * @throws SlickException
+	 */
+	public void spwanObjects() throws SlickException{
+		random = new Random();
+		int col = 0;
+		int row1 = random.nextInt(4);
+		int row2 = random.nextInt(4);
+		
+		if(row1 == row2){ //Ser till att inte båda figurerna skapas på samma position.
+			while(row1 == row2){
+			row2 = random.nextInt(4);
+			}
+		}
+		
+		GameObject obj1 = randomObject();
+		GameObject obj2 = randomObject();
+		
+		Insert(col, row1, obj1);
+		Insert(col, row2, obj2);
+		
+		
+		
 	}
 	/**
 	 * Itererar ï¿½ver hela spelbrï¿½dets matris och ser vilka objekt som finns och ifall
@@ -59,6 +88,42 @@ public class GameBoard {
 				}
 			}
 		}
+		
 	}
+	
+	public GameObject randomObject() throws SlickException {
+		GameObject temp = null;
+		Image jokerTop = new Image("pics/joker-top.png");
+		Image jokerBot = new Image("pics/joker-bot.png");
+		Image hearts = new Image("pics/suits-hearts.png");
+		Image clubs = new Image("pics/suits-clubs.png");
+		Image spades = new Image("pics/suits-spades.png");
+		Image diamond = new Image("pics/suits-diamond.png");
+		
+		int randObj = random.nextInt(10);
+		
+		if(randObj == 0)
+			temp = new GameObject(jokerTop, BlockType.JOKERTOP);
+		if(randObj == 1)
+			temp = new GameObject(hearts, BlockType.HEART);
+		if(randObj == 2)
+			temp = new GameObject(hearts, BlockType.HEART);
+		if(randObj == 3)
+			temp = new GameObject(clubs, BlockType.CLUBS);
+		if(randObj == 4)
+			temp = new GameObject(clubs, BlockType.CLUBS);
+		if(randObj == 5)
+			temp = new GameObject(spades, BlockType.SPADE);
+		if(randObj == 6)
+			temp = new GameObject(spades, BlockType.SPADE);
+		if(randObj == 7)
+			temp = new GameObject(diamond, BlockType.DIAMOND);
+		if(randObj == 8)
+			temp = new GameObject(diamond, BlockType.DIAMOND);
+		if(randObj == 9)	
+			temp = new GameObject(jokerBot, BlockType.JOKERBOT);
+	
+			return temp;
+	}	
 }
 

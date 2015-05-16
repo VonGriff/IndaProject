@@ -14,16 +14,11 @@ public class Play extends BasicGameState{
 	Image playerBack;
 	boolean faceBack;
 	
+	
 	float playerX = 65;
 	//float playerY = 540;
 	
 	Random random;
-	private GameObject previous = null;
-	private GameObject node;
-	private GameObject col1;
-	private GameObject col2;
-	private GameObject col3;
-	private GameObject col4;
 	private GameBoard gameboard = new GameBoard();
 	
 	public Play(int state){
@@ -31,18 +26,18 @@ public class Play extends BasicGameState{
 	}
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
-		Image image3 = new Image("pics/suits-diamond.png");
+
 		playerFront = new Image("pics/batman_1.0.png");
 		playerBack = new Image("pics/batman_1.0_back.png");
 		player = playerFront;
-		GameObject dummy3 = new GameObject(image3, BlockType.DIAMOND);
-		gameboard.Insert(1, 0, dummy3);
+		
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
 		gameboard.draw(g);
 		player.draw(playerX, 540);
 		g.drawString("Batmans X: " + playerX, 40, 40); //Batmans koordinater för collision detection
+		
 		}
 	
 	private int timeSinceMove = 0;
