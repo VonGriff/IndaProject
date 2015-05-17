@@ -6,6 +6,7 @@ public class GameObject {
 	private int value = 5;
 	private Image image;
 	private BlockType type;
+	private boolean isMovingObject;
 	
 	
 	public GameObject(Image img, BlockType type){
@@ -38,6 +39,14 @@ public class GameObject {
 			return 5;
 		}
 		return -1; //Should never happen.
+	}
+	
+	public void setMovingObject(){
+		isMovingObject = false;
+	}
+	
+	public boolean getMovingObject(){
+		return isMovingObject;
 	}
 		
 }

@@ -10,6 +10,10 @@ public class GameBoard {
 	private boolean hasMovingObjects;
 	private int rightHand;
 	private int leftHand;
+	GameObject movingobj1 = null;
+	GameObject movingobj2 = null;
+	int place1 = 0;
+	int place2 = 0;
 	
 	
 	
@@ -81,7 +85,7 @@ public class GameBoard {
 				GameObject current = gameboard[c][i];
 				if(gameboard[c][i+1] == null) {
 					gameboard[c][i+1] = current;
-					gameboard[c][i] = null;	
+					gameboard[c][i] = null;					
 				}
 					
 			}
@@ -89,22 +93,41 @@ public class GameBoard {
 		
 	}
 	
-	public void swapColumns(int leftHand, int rightHand) {
+	public void swapColumns(int leftHand, int rightHand) throws SlickException {
 		int a = leftHand;
 		int b = rightHand;
+		
 		
 		GameObject[] temp1 = new GameObject[gameboard[a].length];
 		GameObject[] temp2 = new GameObject[gameboard[b].length];
 		
+		
 		for(int i = 0; i < gameboard[a].length; i++){
 			temp1[i] = gameboard[a][i];
+			/*if(temp1[i].getMovingObject()){
+				movingobj1 = temp1[i];
+				place1 = i;
+				temp1[i] = null;
+			} */
 			temp2[i] = gameboard[b][i];
+			/*if(temp2[i].getMovingObject()){
+				movingobj2 = temp2[i];
+				place2 = i;
+				temp2[i] = null;
+			}*/
 		}
 		
 		for(int i = 0; i < gameboard[b].length; i++){
 				gameboard[b][i] = temp1[i];
+				/*if(place1 == i && gameboard[b][place1] == null){
+					gameboard[b][place1] = movingobj1;
+				}*/
+				
 				gameboard[a][i] = temp2[i];
-		}
+				/*if(place2 == i && gameboard[a][place2] == null){
+					gameboard[a][place2] = movingobj2;
+				}*/
+		}		
 		
 	}
 	
