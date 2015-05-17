@@ -7,7 +7,6 @@ public class GameBoard {
 	private GameObject[][] gameboard = new GameObject[4][9];
 	private Image playingfield;
 	private Random random;
-	private boolean hasMovingObjects;
 	private int rightHand;
 	private int leftHand;
 	GameObject movingobj1 = null;
@@ -151,14 +150,12 @@ public class GameBoard {
 			for(int i = gameboard[c].length-2; i >= 0; i--) {
 				GameObject current = gameboard[c][i];
 				if(current != null && gameboard[c][i+1] == null) {
-					hasMovingObjects = true;
-					return hasMovingObjects;
+					return true;
 				}
 					
 			}
 		}
-		hasMovingObjects = false;
-		return hasMovingObjects;
+		return false;
 	}
 	
 	
