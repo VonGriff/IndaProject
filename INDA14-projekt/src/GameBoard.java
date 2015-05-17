@@ -87,7 +87,9 @@ public class GameBoard {
 					gameboard[c][i+1] = current;
 					gameboard[c][i] = null;					
 				}
-					
+				if(current != null){
+					current.setMovingObject();
+				}
 			}
 		}
 		
@@ -97,37 +99,17 @@ public class GameBoard {
 		int a = leftHand;
 		int b = rightHand;
 		
-		
-		GameObject[] temp1 = new GameObject[gameboard[a].length];
-		GameObject[] temp2 = new GameObject[gameboard[b].length];
-		
-		
-		for(int i = 0; i < gameboard[a].length; i++){
-			temp1[i] = gameboard[a][i];
-			/*if(temp1[i].getMovingObject()){
-				movingobj1 = temp1[i];
-				place1 = i;
-				temp1[i] = null;
-			} */
-			temp2[i] = gameboard[b][i];
-			/*if(temp2[i].getMovingObject()){
-				movingobj2 = temp2[i];
-				place2 = i;
-				temp2[i] = null;
-			}*/
+		for(int i = gameboard[a].length; i > 0; i--){
+			GameObject temp = gameboard[a][i];
+			
+			if(temp.getMovingObject() && gameboard[b][i] == null){
+				continue;
+			}else {
+				gameboard[a][i] = gameboard[b][i];
+				gameboard[b][i] = temp;
+			}
 		}
-		
-		for(int i = 0; i < gameboard[b].length; i++){
-				gameboard[b][i] = temp1[i];
-				/*if(place1 == i && gameboard[b][place1] == null){
-					gameboard[b][place1] = movingobj1;
-				}*/
-				
-				gameboard[a][i] = temp2[i];
-				/*if(place2 == i && gameboard[a][place2] == null){
-					gameboard[a][place2] = movingobj2;
-				}*/
-		}		
+			
 		
 	}
 	
