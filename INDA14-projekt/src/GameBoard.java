@@ -10,10 +10,10 @@ public class GameBoard {
 	private boolean hasMovingObjects;
 	private int rightHand;
 	private int leftHand;
-	GameObject movingobj1 = null;
-	GameObject movingobj2 = null;
-	int place1 = 0;
-	int place2 = 0;
+	private GameObject movingobj1 = null;
+	private GameObject movingobj2 = null;
+	private int pos1 = 0;
+	private int pos2 = 0;
 	
 	
 	
@@ -96,22 +96,22 @@ public class GameBoard {
 		
 	}
 	
-	public void swapColumns(int leftHand, int rightHand) throws SlickException {
+	public void swapColumns(int leftHand, int rightHand)  {
 		int a = leftHand;
 		int b = rightHand;
 		
-		for(int i = gameboard[a].length; i > 0; i--){
-			GameObject temp = gameboard[a][i];
-			
-			if(temp.isMovingObject() && gameboard[b][i] == null){
-				continue;
-			}else {
-				gameboard[a][i] = gameboard[b][i];
-				gameboard[b][i] = temp;
-			}
-		}
-			
+		GameObject[] temp1 = new GameObject[gameboard[a].length];
+		GameObject[] temp2 = new GameObject[gameboard[b].length];
 		
+		for(int i = 0; i<gameboard[a].length; i++){
+			temp1[i] = gameboard[a][i];
+			temp2[i] = gameboard[b][i];			
+		}
+		
+		for(int i = 0; i<gameboard[b].length; i++){	
+			gameboard[b][i] = temp1[i];
+			gameboard[a][i] = temp2[i]; 			
+		}		
 	}
 	
 	public boolean hasMovingObjects(){
