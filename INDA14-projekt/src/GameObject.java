@@ -41,7 +41,7 @@ public class GameObject {
 		return -1; //Should never happen.
 	}
 	
-	public void setMovingObject(){
+	public void stop(){
 		isMovingObject = false;
 	}
 	

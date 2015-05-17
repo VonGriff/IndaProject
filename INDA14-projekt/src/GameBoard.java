@@ -87,10 +87,10 @@ public class GameBoard {
 					gameboard[c][i] = null;					
 				}
 				else if (current != null) {
-					current.setMovingObject();
+					current.stop();
 				}
 				else {
-					gameboard[c][i+1].setMovingObject();
+					gameboard[c][i+1].stop();
 				}
 			}
 		}
