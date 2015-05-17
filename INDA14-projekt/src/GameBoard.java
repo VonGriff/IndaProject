@@ -8,12 +8,10 @@ public class GameBoard {
 	private Image playingfield;
 	private int objectsInMovement = 0;
 	private Random random;
+	private boolean hasMovingObjects;
 	
 	
 	
-	public GameBoard(){
-		
-	}
 	/**
 	 * Ritar upp spelbr�det samt objekten p� spelbr�det.
 	 * Itererar �ver hela spelbr�det och tittar p� varje objekt,
@@ -36,7 +34,7 @@ public class GameBoard {
 
 				GameObject currentObject = gameboard[i][b];
 				if(currentObject != null) {
-					g.drawImage(currentObject.getImage(), 60+i*60, 80+b*50);
+					g.drawImage(currentObject.getImage(), 70+i*70, 80+b*50);
 				}
 			}
 		}
@@ -83,13 +81,30 @@ public class GameBoard {
 				GameObject current = gameboard[c][i];
 				if(gameboard[c][i+1] == null) {
 					gameboard[c][i+1] = current;
-					gameboard[c][i] = null;
-	
+					gameboard[c][i] = null;	
 				}
+					
 			}
 		}
 		
 	}
+	
+	public boolean hasMovingObjects(){
+		for(int c = 0; c < gameboard.length; c++) {
+			for(int i = gameboard[c].length-2; i >= 0; i--) {
+				GameObject current = gameboard[c][i];
+				if(current != null && gameboard[c][i+1] == null) {
+					hasMovingObjects = true;
+					return hasMovingObjects;
+				}
+					
+			}
+		}
+		hasMovingObjects = false;
+		return hasMovingObjects;
+	}
+	
+	
 	
 	public GameObject randomObject() throws SlickException {
 		GameObject temp = null;
