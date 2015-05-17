@@ -11,9 +11,6 @@ public class GameBoard {
 	
 	
 	
-	public GameBoard(){
-		
-	}
 	/**
 	 * Ritar upp spelbr�det samt objekten p� spelbr�det.
 	 * Itererar �ver hela spelbr�det och tittar p� varje objekt,
