@@ -45,7 +45,7 @@ public class GameObject {
 		isMovingObject = false;
 	}
 	
-	public boolean getMovingObject(){
+	public boolean isMovingObject(){
 		return isMovingObject;
 	}
 		

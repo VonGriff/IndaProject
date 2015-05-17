@@ -83,12 +83,13 @@ public class GameBoard {
 		for(int c = 0; c < gameboard.length; c++) {
 			for(int i = gameboard[c].length-2; i >= 0; i--) {
 				GameObject current = gameboard[c][i];
-				if(gameboard[c][i+1] == null) {
-					gameboard[c][i+1] = current;
-					gameboard[c][i] = null;					
-				}
 				if(current != null){
-					current.setMovingObject();
+					if(gameboard[c][i+1] == null) {
+						gameboard[c][i+1] = current;
+						gameboard[c][i] = null;
+					}else {
+						current.setMovingObject();
+					}
 				}
 			}
 		}
@@ -102,7 +103,7 @@ public class GameBoard {
 		for(int i = gameboard[a].length; i > 0; i--){
 			GameObject temp = gameboard[a][i];
 			
-			if(temp.getMovingObject() && gameboard[b][i] == null){
+			if(temp.isMovingObject() && gameboard[b][i] == null){
 				continue;
 			}else {
 				gameboard[a][i] = gameboard[b][i];
