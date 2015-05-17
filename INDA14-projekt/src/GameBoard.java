@@ -46,10 +46,10 @@ public class GameBoard {
 	}
 	
 	/**
-	 * Skapar 2 figurer och ser till att de inte är på varandra.
+	 * Skapar 2 figurer och ser till att de inte ï¿½r pï¿½ varandra.
 	 * @throws SlickException
 	 */
-	public void spwanObjects() throws SlickException{
+	public void spawnObjects() throws SlickException{
 		random = new Random();
 		int col = 0;
 		int row1 = random.nextInt(4);
