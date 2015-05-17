@@ -90,6 +90,9 @@ public class GameBoard {
 				else if (current != null) {
 					current.setMovingObject();
 				}
+				else {
+					gameboard[c][i+1].setMovingObject();
+				}
 			}
 		}
 	}
