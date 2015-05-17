@@ -23,6 +23,7 @@ public class Play extends BasicGameState{
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
 		player = new Player();
 		player.setPlayerX(playerX);
+		
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
@@ -30,6 +31,9 @@ public class Play extends BasicGameState{
 		player.draw(gc, g);
 		g.drawString("Batmans X: " + player.getPlayerX(), 40, 40); //Batmans koordinater för collision detection
 		
+		if(gameboard.hasMovingObjects() != true){
+			gameboard.spwanObjects();
+		}
 		}
 	
 	private int timeSinceMove = 0;
