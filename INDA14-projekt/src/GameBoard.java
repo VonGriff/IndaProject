@@ -6,9 +6,10 @@ public class GameBoard {
 
 	private GameObject[][] gameboard = new GameObject[4][9];
 	private Image playingfield;
-	private int objectsInMovement = 0;
 	private Random random;
 	private boolean hasMovingObjects;
+	private int rightHand;
+	private int leftHand;
 	
 	
 	
@@ -54,11 +55,10 @@ public class GameBoard {
 		int row1 = random.nextInt(4);
 		int row2 = random.nextInt(4);
 		
-		if(row1 == row2){ //Ser till att inte båda figurerna skapas på samma position.
 			while(row1 == row2){
 			row2 = random.nextInt(4);
 			}
-		}
+		
 		
 		GameObject obj1 = randomObject();
 		GameObject obj2 = randomObject();
@@ -85,6 +85,25 @@ public class GameBoard {
 				}
 					
 			}
+		}
+		
+	}
+	
+	public void swapColumns(int leftHand, int rightHand) {
+		int a = leftHand;
+		int b = rightHand;
+		
+		GameObject[] temp1 = new GameObject[gameboard[a].length];
+		GameObject[] temp2 = new GameObject[gameboard[b].length];
+		
+		for(int i = 0; i < gameboard[a].length; i++){
+			temp1[i] = gameboard[a][i];
+			temp1[i] = gameboard[a][i];
+		}
+		
+		for(int i = 0; i < gameboard[b].length; i++){
+			gameboard[b][i] = temp1[i];
+			gameboard[a][i] = temp2[i];
 		}
 		
 	}

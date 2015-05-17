@@ -30,7 +30,8 @@ public class Play extends BasicGameState{
 		gameboard.draw(g);
 		player.draw(gc, g);
 		g.drawString("Batmans X: " + player.getPlayerX(), 40, 40); //Batmans koordinater för collision detection
-		
+		g.drawString("Right Hand: " + player.getRightHand(), 80, 50);
+		g.drawString("Left hand: " + player.getLeftHand(), 120, 60);
 		if(gameboard.hasMovingObjects() != true){
 			gameboard.spwanObjects();
 		}
