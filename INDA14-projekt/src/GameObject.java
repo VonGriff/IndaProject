@@ -6,7 +6,7 @@ public class GameObject {
 	private int value = 5;
 	private Image image;
 	private BlockType type;
-	private boolean isMovingObject;
+	private boolean isMovingObject = true;
 	
 	
 	public GameObject(Image img, BlockType type){

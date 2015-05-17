@@ -87,30 +87,63 @@ public class GameBoard {
 					gameboard[c][i+1] = current;
 					gameboard[c][i] = null;					
 				}
-				if(current != null){
+				else if (current != null) {
 					current.setMovingObject();
 				}
 			}
 		}
-		
 	}
 	
 	public void swapColumns(int leftHand, int rightHand) throws SlickException {
 		int a = leftHand;
 		int b = rightHand;
 		
-		for(int i = gameboard[a].length; i > 0; i--){
-			GameObject temp = gameboard[a][i];
+		for(int i = gameboard[a].length - 1; i >= 0; i--){
+			GameObject tempA = gameboard[a][i];
+			GameObject tempB = gameboard[b][i];
 			
-			if(temp.getMovingObject() && gameboard[b][i] == null){
+			if (tempA == null && tempB == null) {
 				continue;
-			}else {
+			}else if (tempA == null && tempB != null) {
+				if (tempB.getMovingObject()) {
+					continue;
+				}else {
+					gameboard[a][i] = gameboard[b][i];
+					gameboard[b][i] = tempA;
+				}
+			}else if (tempA != null && tempB == null) {
+				if (tempA.getMovingObject()) {
+					continue;
+				}else {
+					gameboard[a][i] = gameboard[b][i];
+					gameboard[b][i] = tempA;
+				}
+				
+			}else if (tempA != null && tempB != null) {
+				if (tempA.getMovingObject() || tempB.getMovingObject()) {
+					continue;
+				}else {
+					gameboard[a][i] = gameboard[b][i];
+					gameboard[b][i] = tempA;
+				}
+			}
+			
+			/*if (temp != null) {
+				if((temp.getMovingObject() && gameboard[b][i] == null) /*|| (temp.getMovingObject() && gameboard[b][i].getMovingObject())){
+					continue;
+				}else {
+					gameboard[a][i] = gameboard[b][i];
+					gameboard[b][i] = temp;
+				}
+			}else if (gameboard[b][i] != null){
+				if (temp == null && !gameboard[b][i].getMovingObject()){
 				gameboard[a][i] = gameboard[b][i];
 				gameboard[b][i] = temp;
-			}
+				}
+			}else if (temp.getMovingObject() && gameboard[b][i].getMovingObject()) {
+				continue;
+			}*/
 		}
-			
-		
 	}
 	
 	public boolean hasMovingObjects(){
