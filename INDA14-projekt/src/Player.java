@@ -9,6 +9,7 @@ public class Player {
 	
 
 
+	
 	private int leftHand = 0;
 	private int rightHand = 1;
 	float playerX = 65;

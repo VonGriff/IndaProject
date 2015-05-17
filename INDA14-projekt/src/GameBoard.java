@@ -98,12 +98,12 @@ public class GameBoard {
 		
 		for(int i = 0; i < gameboard[a].length; i++){
 			temp1[i] = gameboard[a][i];
-			temp1[i] = gameboard[a][i];
+			temp2[i] = gameboard[b][i];
 		}
 		
 		for(int i = 0; i < gameboard[b].length; i++){
-			gameboard[b][i] = temp1[i];
-			gameboard[a][i] = temp2[i];
+				gameboard[b][i] = temp1[i];
+				gameboard[a][i] = temp2[i];
 		}
 		
 	}
