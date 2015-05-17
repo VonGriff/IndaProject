@@ -7,9 +7,12 @@ public class Player {
 	Image playerBack = new Image("pics/batman_1.0_back.png");
 	boolean faceBack;
 	
-	float playerX;
+
+
 	private int leftHand = 0;
 	private int rightHand = 1;
+	float playerX = 65;
+
 
 	
 	public Player() throws SlickException {
@@ -26,7 +29,7 @@ public class Player {
 		player.draw(playerX, 540);
 	}
 	
-	public float movePlayer(GameContainer gc) {
+	public boolean movePlayer(GameContainer gc) {
 		Input input = gc.getInput();
 		int moveDistance = 80;
 		
@@ -62,9 +65,10 @@ public class Player {
 			} else {
 				faceBack = true;
 			}
+			return true;
 		}
 		
-		return playerX;
+		return false;
 	}
 	
 	public float getPlayerX() {

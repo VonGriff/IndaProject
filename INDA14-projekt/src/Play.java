@@ -11,7 +11,6 @@ public class Play extends BasicGameState{
 	Image playingfield;
 	
 	Player player;
-	float playerX = 65;
 	
 	Random random;
 	private GameBoard gameboard = new GameBoard();
@@ -22,7 +21,6 @@ public class Play extends BasicGameState{
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
 		player = new Player();
-		player.setPlayerX(playerX);
 		
 	}
 	
@@ -47,7 +45,9 @@ public class Play extends BasicGameState{
 			gameboard.moveObjects();
 		}
 		//Uppdaterar spelarens koordinater
-		player.movePlayer(gc);
+		if  (player.movePlayer(gc)) {
+			gameboard.swapColumns(player.getLeftHand(), player.getRightHand());
+		}
 	}
 	
 	public int getID(){
