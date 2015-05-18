@@ -30,6 +30,8 @@ public class Play extends BasicGameState{
 		gameboard.draw(g);
 		player.draw(gc, g);
 		scorefigure.draw(400, 250);
+		
+		g.drawString("Score: " /*+ Score.getScore*/, 500, 250);
 		g.drawString("Batmans X: " + player.getPlayerX(), 40, 40); //Batmans koordinater för collision detection
 		g.drawString("Right Hand: " + player.getRightHand(), 80, 50);
 		g.drawString("Left hand: " + player.getLeftHand(), 120, 60);
@@ -52,6 +54,11 @@ public class Play extends BasicGameState{
 		//Uppdaterar spelarens koordinater
 		if  (player.movePlayer(gc)) {
 			gameboard.swapColumns(player.getLeftHand(), player.getRightHand());
+		}
+		
+		//Kollar om det spelet är slut
+		if (gameboard.areRowsFull()) {
+			sbg.enterState(3);
 		}
 	}
 	

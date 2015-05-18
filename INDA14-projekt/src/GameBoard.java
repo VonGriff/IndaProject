@@ -52,27 +52,25 @@ public class GameBoard {
 	 * Skapar 2 figurer och ser till att de inte �r p� varandra.
 	 * @throws SlickException
 	 */
-	public void spawnObjects() throws SlickException{
+	public void spawnObjects() throws SlickException {
 		random = new Random();
 		int col = 0;
 		int row1 = random.nextInt(4);
 		int row2 = random.nextInt(4);
 		
-			while(row1 == row2){
+		while(row1 == row2) {
 			row2 = random.nextInt(4);
-			}
-		
+		}
 		
 		GameObject obj1 = randomObject();
 		GameObject obj2 = randomObject();
-	if(gameboard[0][row1] != null ||gameboard[0][row2] != null ){
-		rowsAreFull = true;
-	}else {
-		Insert(col, row1, obj1);
-		Insert(col, row2, obj2);
-	}
 		
-		
+		if(gameboard[row1][0] != null || gameboard[row2][0] != null ) {
+			rowsAreFull = true;
+		}else {
+			Insert(col, row1, obj1);
+			Insert(col, row2, obj2);
+		}
 	}
 	/**
 	 * Itererar �ver hela spelbr�dets matris och ser vilka objekt som finns och ifall

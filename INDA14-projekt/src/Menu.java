@@ -38,10 +38,11 @@ public class Menu extends BasicGameState{
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
 		int xpos = Mouse.getX();
 		int ypos = Mouse.getY();
+		Input input = gc.getInput();
 		mouse = "Mouse position x: " + xpos + " y: " + ypos;
 		
 		//play button
-		if(Keyboard.isKeyDown(Input.KEY_1)){
+		if(input.isKeyPressed(Input.KEY_1)){
 			sbg.enterState(1);
 		}
 		if((xpos < 390 && xpos > 315) && (ypos < 305 && ypos > 280)){
@@ -50,7 +51,7 @@ public class Menu extends BasicGameState{
 			}
 		}
 		//option button
-		if(Keyboard.isKeyDown(Input.KEY_2)){
+		if(input.isKeyPressed(Input.KEY_2)){
 			sbg.enterState(2);
 		}
 		if((xpos < 415 && xpos > 315) && (ypos < 255 && ypos > 230)){
@@ -59,7 +60,7 @@ public class Menu extends BasicGameState{
 			}
 		}
 		//exit button
-		if(Keyboard.isKeyDown(Input.KEY_3)){
+		if(input.isKeyPressed(Input.KEY_3)){
 			System.exit(0);
 		}
 		if((xpos < 390 && xpos > 315) && (ypos < 205 && ypos > 180)){

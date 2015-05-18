@@ -7,9 +7,6 @@ public class Player {
 	Image playerBack = new Image("pics/batman_1.0_back.png");
 	boolean faceBack;
 	
-
-
-	
 	private int leftHand = 0;
 	private int rightHand = 1;
 	float playerX = 65;
@@ -23,7 +20,7 @@ public class Player {
 	public void draw(GameContainer gc, Graphics g) throws SlickException {
 		if (faceBack) {
 			player = playerBack;
-		} else {
+		}else {
 			player = playerFront;
 		}
 
