@@ -9,6 +9,7 @@ import java.util.Random;
 public class Play extends BasicGameState{
 
 	Image playingfield;
+	Image scorefigure;
 	
 	Player player;
 	
@@ -21,12 +22,14 @@ public class Play extends BasicGameState{
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
 		player = new Player();
+		scorefigure = new Image("pics/harley_score.png");
 		
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
 		gameboard.draw(g);
 		player.draw(gc, g);
+		scorefigure.draw(400, 250);
 		g.drawString("Batmans X: " + player.getPlayerX(), 40, 40); //Batmans koordinater för collision detection
 		g.drawString("Right Hand: " + player.getRightHand(), 80, 50);
 		g.drawString("Left hand: " + player.getLeftHand(), 120, 60);
