@@ -109,27 +109,18 @@ public class GameBoard {
 			}else if (tempA == null && tempB != null) {
 				if (tempB.isMovingObject()) {
 					continue;
-				}else {
-					gameboard[a][i] = gameboard[b][i];
-					gameboard[b][i] = tempA;
 				}
 			}else if (tempA != null && tempB == null) {
 				if (tempA.isMovingObject()) {
 					continue;
-				}else {
-					gameboard[a][i] = gameboard[b][i];
-					gameboard[b][i] = tempA;
 				}
-				
 			}else if (tempA != null && tempB != null) {
 				if (tempA.isMovingObject() && tempB.isMovingObject()) {
 					continue;
-				}else {
-					gameboard[a][i] = gameboard[b][i];
-					gameboard[b][i] = tempA;
 				}
 			}
-			
+			gameboard[a][i] = gameboard[b][i];
+			gameboard[b][i] = tempA;
 		}
 	}
 	
