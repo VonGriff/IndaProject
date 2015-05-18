@@ -122,7 +122,7 @@ public class GameBoard {
 				}
 				
 			}else if (tempA != null && tempB != null) {
-				if (tempA.isMovingObject() || tempB.isMovingObject()) {
+				if (tempA.isMovingObject() && tempB.isMovingObject()) {
 					continue;
 				}else {
 					gameboard[a][i] = gameboard[b][i];
