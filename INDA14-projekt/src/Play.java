@@ -35,10 +35,8 @@ public class Play extends BasicGameState{
 	}
 	
 	private int timeSinceMove = 0;
-	private int timeSinceSpawn = 0;
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
 		timeSinceMove += delta;
-		timeSinceSpawn += delta;
 		
 		if(gameboard.hasMovingObjects() != true) 
 			gameboard.spawnObjects();
