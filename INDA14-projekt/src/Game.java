@@ -31,6 +31,7 @@ public class Game extends StateBasedGame{
 			appgc.setVSync(true);
 			appgc.setAlwaysRender(true);
 			appgc.start();
+			
 		}catch(SlickException e){
 			e.printStackTrace();
 		}
