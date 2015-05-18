@@ -34,15 +34,16 @@ public class Play extends BasicGameState{
 		g.drawString("Right Hand: " + player.getRightHand(), 80, 50);
 		g.drawString("Left hand: " + player.getLeftHand(), 120, 60);
 		gameboard.stopMoving();
-		if(gameboard.hasMovingObjects() != true){
-			gameboard.spawnObjects();
-		}
+		
 	}
 	
 	private int timeSinceMove = 0;
-	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
 		timeSinceMove += delta;
+		
+		if(gameboard.hasMovingObjects() != true) 
+			gameboard.spawnObjects();
+			
 		
 		if(timeSinceMove >= 1000) {
 			timeSinceMove = 0;

@@ -11,6 +11,8 @@ public class GameBoard {
 	GameObject movingobj2 = null;
 	int place1 = 0;
 	int place2 = 0;
+	private boolean rowsAreFull = false;
+	
 	
 	
 	
@@ -63,10 +65,12 @@ public class GameBoard {
 		
 		GameObject obj1 = randomObject();
 		GameObject obj2 = randomObject();
-		
+	if(gameboard[0][row1] != null ||gameboard[0][row2] != null ){
+		rowsAreFull = true;
+	}else {
 		Insert(col, row1, obj1);
 		Insert(col, row2, obj2);
-		
+	}
 		
 		
 	}
@@ -128,21 +132,6 @@ public class GameBoard {
 				}
 			}
 			
-			/*if (temp != null) {
-				if((temp.getMovingObject() && gameboard[b][i] == null) /*|| (temp.getMovingObject() && gameboard[b][i].getMovingObject())){
-					continue;
-				}else {
-					gameboard[a][i] = gameboard[b][i];
-					gameboard[b][i] = temp;
-				}
-			}else if (gameboard[b][i] != null){
-				if (temp == null && !gameboard[b][i].getMovingObject()){
-				gameboard[a][i] = gameboard[b][i];
-				gameboard[b][i] = temp;
-				}
-			}else if (temp.getMovingObject() && gameboard[b][i].getMovingObject()) {
-				continue;
-			}*/
 		}
 	}
 	
@@ -207,7 +196,11 @@ public class GameBoard {
 			temp = new GameObject(jokerBot, BlockType.JOKERBOT);
 	
 			return temp;
-	}	
+	}
+	
+	public boolean areRowsFull() {
+		return rowsAreFull;
+	}
 }
 
 
