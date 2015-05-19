@@ -92,7 +92,7 @@ public class GameBoard {
 						 if(gameboard[c][i+1].getBlockType() == BlockType.JOKERBOT){
 							gameboard[c][i] = null;
 							gameboard[c][i+1] = null;
-							score += 40;
+							score += 50;
 						 }else
 							 if(gameboard[c][i+1].getBlockType() != BlockType.JOKERBOT){
 								 gameboard[c][i] = null; 
