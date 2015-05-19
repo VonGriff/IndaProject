@@ -7,7 +7,8 @@ public class GameOver extends BasicGameState {
 	
 	Image joker;
 	Image bubble;
-	
+	//int score = Play.getScore();
+	GameBoard gb = Play.getBoard();
 
 	public GameOver(int state) {
 		
@@ -15,13 +16,14 @@ public class GameOver extends BasicGameState {
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
 		joker = new Image("pics/joker_face.png");
 		bubble = new Image("pics/bubble_own.png");
+		//score = sbg.getState(1).getScore();
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
 		joker.draw(300, 100);
 		bubble.draw(500, 50);
 		
-		g.drawString("Game Over, Bats! \nScore: " /*+ getScore()*/, 575, 125);
+		g.drawString("Game Over, Bats! \nScore: " + gb.getScore(), 575, 125);
 		
 		g.drawString("1. Retry", 0, 0);
 		g.drawString("2. Main Menu", 0, 20);

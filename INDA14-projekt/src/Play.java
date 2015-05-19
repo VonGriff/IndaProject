@@ -17,7 +17,7 @@ public class Play extends BasicGameState{
 	Player player;
 	
 	Random random;
-	private GameBoard gameboard = new GameBoard();
+	private static GameBoard gameboard = new GameBoard();
 	
 	public Play(int state){
 		
@@ -66,6 +66,10 @@ public class Play extends BasicGameState{
 	
 	public int getID(){
 		return 1;
+	}
+	
+	public static GameBoard getBoard()  {
+		return gameboard;
 	}
 	
 }
