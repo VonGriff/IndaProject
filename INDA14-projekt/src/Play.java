@@ -1,10 +1,10 @@
-import org.lwjgl.input.Keyboard;
+//import org.lwjgl.input.Keyboard;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
-import org.newdawn.slick.Input;
+//import org.newdawn.slick.Input;
 
-import java.awt.RenderingHints.Key;
-import java.awt.event.KeyEvent;
+//import java.awt.RenderingHints.Key;
+//import java.awt.event.KeyEvent;
 import java.util.Random;
 import java.util.Timer;;
 public class Play extends BasicGameState{
@@ -37,9 +37,9 @@ public class Play extends BasicGameState{
 		scorefigure.draw(400, 250);
 		
 		g.drawString("Score: " + gameboard.getScore(), 500, 250);
-		g.drawString("Batmans X: " + player.getPlayerX(), 40, 40); //Batmans koordinater för collision detection
-		g.drawString("Right Hand: " + player.getRightHand(), 80, 50);
-		g.drawString("Left hand: " + player.getLeftHand(), 120, 60);
+		//g.drawString("Batmans X: " + player.getPlayerX(), 40, 40); //Batmans koordinater för collision detection
+		//g.drawString("Right Hand: " + player.getRightHand(), 80, 50);
+		//g.drawString("Left hand: " + player.getLeftHand(), 120, 60);
 		gameboard.stopMoving();
 		
 	}
