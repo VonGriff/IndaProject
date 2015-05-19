@@ -1,10 +1,10 @@
-import org.lwjgl.input.Keyboard;
+//import org.lwjgl.input.Keyboard;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
-import org.newdawn.slick.Input;
+//import org.newdawn.slick.Input;
 
-import java.awt.RenderingHints.Key;
-import java.awt.event.KeyEvent;
+//import java.awt.RenderingHints.Key;
+//import java.awt.event.KeyEvent;
 import java.util.Random;
 import java.util.Timer;;
 public class Play extends BasicGameState{
@@ -13,6 +13,8 @@ public class Play extends BasicGameState{
 	Image scorefigure;
 	Timer timer = new Timer();
 	
+	int speed = 750;
+	int levelScore = 100;
 	
 	Player player;
 	
@@ -35,9 +37,9 @@ public class Play extends BasicGameState{
 		scorefigure.draw(400, 250);
 		
 		g.drawString("Score: " + gameboard.getScore(), 500, 250);
-		g.drawString("Batmans X: " + player.getPlayerX(), 40, 40); //Batmans koordinater för collision detection
-		g.drawString("Right Hand: " + player.getRightHand(), 80, 50);
-		g.drawString("Left hand: " + player.getLeftHand(), 120, 60);
+		//g.drawString("Batmans X: " + player.getPlayerX(), 40, 40); //Batmans koordinater för collision detection
+		//g.drawString("Right Hand: " + player.getRightHand(), 80, 50);
+		//g.drawString("Left hand: " + player.getLeftHand(), 120, 60);
 		gameboard.stopMoving();
 		
 	}
@@ -45,11 +47,22 @@ public class Play extends BasicGameState{
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
 		timeSinceMove += delta;
 
+		if (gameboard.getRetry()) {
+			speed = 750;
+		}
+		
+		gameboard.clear();
+
+		speed = incLevel();
+		
+		
 		if(gameboard.hasMovingObjects() != true){
 			gameboard.spawnObjects();
 		}
 
 		if(timeSinceMove >= 500) {
+
+		if(timeSinceMove >= speed) {
 			timeSinceMove = 0;
 			gameboard.moveObjects();
 		}
@@ -63,6 +76,7 @@ public class Play extends BasicGameState{
 			sbg.enterState(3);
 		}
 	}
+}
 	
 	public int getID(){
 		return 1;
@@ -72,4 +86,12 @@ public class Play extends BasicGameState{
 		return gameboard;
 	}
 	
+	public int incLevel() {
+		int score = gameboard.getScore();
+		if (score >= levelScore && !(speed < 0)) {
+			levelScore += 100;
+			return speed -= 100;
+		}
+		return speed;
+	}
 }

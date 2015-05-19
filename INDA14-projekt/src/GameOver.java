@@ -1,4 +1,4 @@
-import org.lwjgl.input.Keyboard;
+//import org.lwjgl.input.Keyboard;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
@@ -7,7 +7,6 @@ public class GameOver extends BasicGameState {
 	
 	Image joker;
 	Image bubble;
-	//int score = Play.getScore();
 	GameBoard gb = Play.getBoard();
 
 	public GameOver(int state) {
@@ -16,7 +15,6 @@ public class GameOver extends BasicGameState {
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
 		joker = new Image("pics/joker_face.png");
 		bubble = new Image("pics/bubble_own.png");
-		//score = sbg.getState(1).getScore();
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
@@ -35,11 +33,15 @@ public class GameOver extends BasicGameState {
 		
 		//Enter play
 		if(input.isKeyPressed(Input.KEY_1)){
+			gb.setRetry();
+			gb.setRowsEmpty();
 			sbg.enterState(1);
 		}
 		
 		//Enter menu
 		if(input.isKeyPressed(Input.KEY_2)){
+			gb.setRetry();
+			gb.setRowsEmpty();
 			sbg.enterState(0);
 		}
 		
