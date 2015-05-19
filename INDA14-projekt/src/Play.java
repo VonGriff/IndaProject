@@ -38,14 +38,16 @@ public class Play extends BasicGameState{
 		gameboard.stopMoving();
 		
 	}
-	
 	private int timeSinceMove = 0;
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
 		timeSinceMove += delta;
 		
-		if(gameboard.hasMovingObjects() != true) 
+		
+		if(gameboard.hasMovingObjects() != true)
 			gameboard.spawnObjects();
+
 			
+		
 		
 		if(timeSinceMove >= 1000) {
 			timeSinceMove = 0;

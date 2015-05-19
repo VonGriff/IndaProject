@@ -87,6 +87,10 @@ public class GameBoard {
 					gameboard[c][i] = null;
 				}
 				else if (current != null) {
+					if(current.getBlockType() == gameboard[c][i+1].getBlockType()){
+						gameboard[c][i] = null;
+						gameboard[c][i+1] = null;
+					}else 
 					current.stop();
 				}
 				else {

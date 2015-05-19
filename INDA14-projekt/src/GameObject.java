@@ -48,5 +48,9 @@ public class GameObject {
 	public boolean isMovingObject(){
 		return isMovingObject;
 	}
+	
+	public BlockType getBlockType(){
+		return type;
+	}
 		
 }
