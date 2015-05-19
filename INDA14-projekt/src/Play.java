@@ -13,6 +13,8 @@ public class Play extends BasicGameState{
 	Image scorefigure;
 	Timer timer = new Timer();
 	
+	int speed = 750;
+	int levelScore = 100;
 	
 	Player player;
 	
@@ -45,13 +47,20 @@ public class Play extends BasicGameState{
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
 		timeSinceMove += delta;
 
+		if (gameboard.getRetry()) {
+			speed = 750;
+		}
+		
 		gameboard.clear();
+
+		speed = incLevel();
+		
 		
 		if(gameboard.hasMovingObjects() != true){
 			gameboard.spawnObjects();
 		}
 
-		if(timeSinceMove >= 750) {
+		if(timeSinceMove >= speed) {
 			timeSinceMove = 0;
 			gameboard.moveObjects();
 		}
@@ -74,4 +83,12 @@ public class Play extends BasicGameState{
 		return gameboard;
 	}
 	
+	public int incLevel() {
+		int score = gameboard.getScore();
+		if (score >= levelScore && !(speed < 0)) {
+			levelScore += 100;
+			return speed -= 100;
+		}
+		return speed;
+	}
 }

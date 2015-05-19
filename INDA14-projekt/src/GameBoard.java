@@ -30,7 +30,6 @@ public class GameBoard {
 	 * @throws SlickException
 	 */
 	public void draw(Graphics g) throws SlickException{
-		//clear();
 		playingfield = new Image("pics/playingfield.png");
 		g.drawImage(playingfield, 40, 80);
 		
@@ -235,6 +234,7 @@ public class GameBoard {
 					gameboard[c][i] = null;
 				}
 			}
+			score = 0;
 		}
 		retry = false;
 	}
