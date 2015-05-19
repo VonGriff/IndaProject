@@ -1,5 +1,4 @@
 import org.lwjgl.input.Mouse;
-import org.lwjgl.input.Keyboard;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 import org.newdawn.slick.state.transition.FadeInTransition;
@@ -24,7 +23,7 @@ public class Options extends BasicGameState{
 	}
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
 		
-		g.drawString(mouse, 80, 550);
+		//g.drawString(mouse, 80, 550);
 		g.drawString("Fullscreen", 650, 520);
 		g.drawString("Back", 200, 500);
 		

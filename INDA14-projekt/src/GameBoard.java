@@ -11,9 +11,10 @@ public class GameBoard {
 	GameObject movingobj2 = null;
 	int place1 = 0;
 	int place2 = 0;
-	private boolean rowsAreFull = false;
+	private boolean rowsAreFull;
 	private int score = 0;
 	
+	private boolean retry;
 	
 	
 	/**
@@ -91,7 +92,7 @@ public class GameBoard {
 						 if(gameboard[c][i+1].getBlockType() == BlockType.JOKERBOT){
 							gameboard[c][i] = null;
 							gameboard[c][i+1] = null;
-							score += 40;
+							score += 50;
 						 }else
 							 if(gameboard[c][i+1].getBlockType() != BlockType.JOKERBOT){
 								 gameboard[c][i] = null; 
@@ -210,8 +211,32 @@ public class GameBoard {
 		return rowsAreFull;
 	}
 	
+	public void setRowsEmpty() {
+		rowsAreFull = false;
+	}
+	
 	public int getScore() {
 		return score;
+	}
+	
+	public boolean getRetry() {
+		return retry;
+	}
+	
+	public void setRetry() {
+		retry = true;
+	}
+	
+	public void clear() {
+		if (retry) {
+			for(int c = 0; c < gameboard.length; c++) {
+				for(int i = gameboard[c].length-1; i >= 0; i--) {
+					gameboard[c][i] = null;
+				}
+			}
+			score = 0;
+		}
+		retry = false;
 	}
 }
 

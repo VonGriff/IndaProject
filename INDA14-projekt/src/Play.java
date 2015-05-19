@@ -60,8 +60,6 @@ public class Play extends BasicGameState{
 			gameboard.spawnObjects();
 		}
 
-		if(timeSinceMove >= 500) {
-
 		if(timeSinceMove >= speed) {
 			timeSinceMove = 0;
 			gameboard.moveObjects();
@@ -76,7 +74,7 @@ public class Play extends BasicGameState{
 			sbg.enterState(3);
 		}
 	}
-}
+
 	
 	public int getID(){
 		return 1;

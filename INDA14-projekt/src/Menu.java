@@ -2,7 +2,6 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
-import org.newdawn.slick.gui.MouseOverArea;
 import org.lwjgl.input.Mouse;
 //import org.lwjgl.input.Keyboard;
 
@@ -23,7 +22,7 @@ public class Menu extends BasicGameState{
 	}
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
 
-		Input input = gc.getInput();
+		//Input input = gc.getInput();
 		
 		//g.drawString(mouse, 0, 550);
 		g.drawString("1. Play", 320, 300);
