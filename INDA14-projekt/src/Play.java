@@ -2,14 +2,17 @@ import org.lwjgl.input.Keyboard;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 import org.newdawn.slick.Input;
+
 import java.awt.RenderingHints.Key;
 import java.awt.event.KeyEvent;
 import java.util.Random;
-
+import java.util.Timer;;
 public class Play extends BasicGameState{
 
 	Image playingfield;
 	Image scorefigure;
+	Timer timer = new Timer();
+	
 	
 	Player player;
 	
@@ -41,15 +44,12 @@ public class Play extends BasicGameState{
 	private int timeSinceMove = 0;
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
 		timeSinceMove += delta;
-		
-		
-		if(gameboard.hasMovingObjects() != true)
-			gameboard.spawnObjects();
 
-			
-		
-		
-		if(timeSinceMove >= 1000) {
+		if(gameboard.hasMovingObjects() != true){
+			gameboard.spawnObjects();
+		}
+
+		if(timeSinceMove >= 750) {
 			timeSinceMove = 0;
 			gameboard.moveObjects();
 		}
