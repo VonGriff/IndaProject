@@ -12,7 +12,7 @@ public class GameBoard {
 	int place1 = 0;
 	int place2 = 0;
 	private boolean rowsAreFull = false;
-	
+	private int score = 0;
 	
 	
 	
@@ -87,9 +87,20 @@ public class GameBoard {
 					gameboard[c][i] = null;
 				}
 				else if (current != null) {
+					if(current.getBlockType() == BlockType.JOKERTOP && gameboard[c][i+1] != null){
+						 if(gameboard[c][i+1].getBlockType() == BlockType.JOKERBOT){
+							gameboard[c][i] = null;
+							gameboard[c][i+1] = null;
+							score += 40;
+						 }else
+							 if(gameboard[c][i+1].getBlockType() != BlockType.JOKERBOT){
+								 gameboard[c][i] = null; 
+							 }
+					} else
 					if(current.getBlockType() == gameboard[c][i+1].getBlockType()){
 						gameboard[c][i] = null;
 						gameboard[c][i+1] = null;
+						score += 10;
 					}else 
 					current.stop();
 				}
@@ -193,6 +204,10 @@ public class GameBoard {
 	
 	public boolean areRowsFull() {
 		return rowsAreFull;
+	}
+	
+	public int getScore() {
+		return score;
 	}
 }
 

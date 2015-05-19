@@ -7,11 +7,11 @@ public class GameOver extends BasicGameState {
 	
 	Image joker;
 	Image bubble;
+	
 
 	public GameOver(int state) {
 		
 	}
-	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
 		joker = new Image("pics/joker_face.png");
 		bubble = new Image("pics/bubble_own.png");

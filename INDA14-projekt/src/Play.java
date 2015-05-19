@@ -31,7 +31,7 @@ public class Play extends BasicGameState{
 		player.draw(gc, g);
 		scorefigure.draw(400, 250);
 		
-		g.drawString("Score: " /*+ Score.getScore*/, 500, 250);
+		g.drawString("Score: " + gameboard.getScore(), 500, 250);
 		g.drawString("Batmans X: " + player.getPlayerX(), 40, 40); //Batmans koordinater för collision detection
 		g.drawString("Right Hand: " + player.getRightHand(), 80, 50);
 		g.drawString("Left hand: " + player.getLeftHand(), 120, 60);
