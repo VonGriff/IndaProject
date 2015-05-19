@@ -105,6 +105,10 @@ public class GameBoard {
 					current.stop();
 				}
 				else {
+					if(gameboard[c][i+1] != null)
+						if(gameboard[c][i+1].getBlockType() == BlockType.JOKERTOP)
+							gameboard[c][i+1] = null;
+						else
 					gameboard[c][i+1].stop();
 				}
 			}
