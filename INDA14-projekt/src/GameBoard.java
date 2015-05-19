@@ -11,9 +11,10 @@ public class GameBoard {
 	GameObject movingobj2 = null;
 	int place1 = 0;
 	int place2 = 0;
-	private boolean rowsAreFull = false;
+	private boolean rowsAreFull;
 	private int score = 0;
 	
+	private boolean retry;
 	
 	
 	/**
@@ -29,6 +30,7 @@ public class GameBoard {
 	 * @throws SlickException
 	 */
 	public void draw(Graphics g) throws SlickException{
+		//clear();
 		playingfield = new Image("pics/playingfield.png");
 		g.drawImage(playingfield, 40, 80);
 		
@@ -210,8 +212,31 @@ public class GameBoard {
 		return rowsAreFull;
 	}
 	
+	public void setRowsEmpty() {
+		rowsAreFull = false;
+	}
+	
 	public int getScore() {
 		return score;
+	}
+	
+	public boolean getRetry() {
+		return retry;
+	}
+	
+	public void setRetry() {
+		retry = true;
+	}
+	
+	public void clear() {
+		if (retry) {
+			for(int c = 0; c < gameboard.length; c++) {
+				for(int i = gameboard[c].length-1; i >= 0; i--) {
+					gameboard[c][i] = null;
+				}
+			}
+		}
+		retry = false;
 	}
 }
 
