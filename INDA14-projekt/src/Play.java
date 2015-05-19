@@ -49,7 +49,7 @@ public class Play extends BasicGameState{
 			gameboard.spawnObjects();
 		}
 
-		if(timeSinceMove >= 750) {
+		if(timeSinceMove >= 500) {
 			timeSinceMove = 0;
 			gameboard.moveObjects();
 		}

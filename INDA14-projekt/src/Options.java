@@ -1,6 +1,9 @@
 import org.lwjgl.input.Mouse;
+import org.lwjgl.input.Keyboard;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 
 public class Options extends BasicGameState{
 
@@ -20,11 +23,11 @@ public class Options extends BasicGameState{
 		pic3 = new Image("pics/fullscreen.png");
 	}
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
+		
 		g.drawString(mouse, 80, 550);
-		g.drawString("options", 100, 100);
 		g.drawString("Fullscreen", 650, 520);
 		g.drawString("Back", 200, 500);
-
+		
 		
 		pic1.draw(100, 10);
 		if(gc.isFullscreen() == false){
@@ -37,6 +40,7 @@ public class Options extends BasicGameState{
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
 		int xpos = Mouse.getX();
 		int ypos = Mouse.getY();
+		Input input = gc.getInput();
 		mouse = "Mouse position x: " + xpos + " y: " + ypos;
 
 		//fullscreen button
@@ -54,9 +58,12 @@ public class Options extends BasicGameState{
 			}
 		}
 		//back button
+		if(input.isKeyPressed(Input.KEY_ESCAPE)){
+			sbg.enterState(0, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+		}
 		if((xpos < 240 && xpos > 195) && (ypos < 105 && ypos > 85)){
 			if(Mouse.isButtonDown(0)){
-				sbg.enterState(0);
+				sbg.enterState(0, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 			}
 		}
 	}

@@ -36,11 +36,10 @@ public class GameOver extends BasicGameState {
 		//Enter play
 		if(input.isKeyPressed(Input.KEY_1)){
 			sbg.enterState(1);
-		
 		}
 		
 		//Enter menu
-		if(input.isKeyDown(Input.KEY_2)){
+		if(input.isKeyPressed(Input.KEY_2)){
 			sbg.enterState(0);
 		}
 		
