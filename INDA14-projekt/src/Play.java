@@ -1,12 +1,14 @@
 //import org.lwjgl.input.Keyboard;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
+import org.newdawn.slick.state.transition.FadeOutTransition;
+import org.newdawn.slick.state.transition.FadeInTransition;
 //import org.newdawn.slick.Input;
 
 //import java.awt.RenderingHints.Key;
 //import java.awt.event.KeyEvent;
 import java.util.Random;
-import java.util.Timer;;
+import java.util.Timer;
 public class Play extends BasicGameState{
 
 	Image playingfield;
@@ -71,7 +73,7 @@ public class Play extends BasicGameState{
 		
 		//Kollar om det spelet är slut
 		if (gameboard.areRowsFull()) {
-			sbg.enterState(3);
+			sbg.enterState(3, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 		}
 	}
 
