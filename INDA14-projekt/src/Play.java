@@ -30,6 +30,10 @@ public class Play extends BasicGameState{
 		
 	}
 	
+	/**
+	 * Ritar upp spelbrädet, spelaren, bilden till höger som håller i poängen,
+	 * poängen självt och kontrollerar om figurerna ska sluta röra på sig
+	 */
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
 		gameboard.draw(g);
 		player.draw(gc, g);
@@ -41,15 +45,19 @@ public class Play extends BasicGameState{
 		
 	}
 	
+	//Uppdaterar
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
 		timeSinceMove += delta;
 
+		//Sätter speed till 750 då man trycker retry efter GameOver
 		if (gameboard.getRetry()) {
 			speed = 750;
 		}
 		
+		//Kollar om spelbrädet behöver rensas
 		gameboard.clear();
 
+		//Ökar hastigheten vid vissa intervall
 		speed = incLevel();
 		
 		
@@ -57,6 +65,7 @@ public class Play extends BasicGameState{
 			gameboard.spawnObjects();
 		}
 
+		//Hanterar delay på när figurerna ska röra sig
 		if(timeSinceMove >= speed) {
 			timeSinceMove = 0;
 			gameboard.moveObjects();
@@ -81,6 +90,7 @@ public class Play extends BasicGameState{
 		return gameboard;
 	}
 	
+	//Ökar hastigheten var hundrade poäng
 	public int incLevel() {
 		int score = gameboard.getScore();
 		if (score >= levelScore && !(speed < 0)) {
