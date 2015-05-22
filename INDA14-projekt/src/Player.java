@@ -17,6 +17,7 @@ public class Player {
 		
 	}
 	
+	//Ritar spelaren och kollar ifall ansiktet eller ryggen ska vara vänd utåt
 	public void draw(GameContainer gc, Graphics g) throws SlickException {
 		if (faceBack) {
 			player = playerBack;
@@ -27,6 +28,12 @@ public class Player {
 		player.draw(playerX, 540);
 	}
 	
+	/**
+	 * Flyttar spelaren höger och vänster
+	 * Satt som boolean för att draw ska veta om ryggen eller fronten ska visas
+	 * @param gc
+	 * @return
+	 */
 	public boolean movePlayer(GameContainer gc) {
 		Input input = gc.getInput();
 		int moveDistance = 80;
