@@ -26,6 +26,8 @@ public class Menu extends BasicGameState{
 		
 		pic1.draw(250, 10);
 		pic1.setFilter(Image.FILTER_NEAREST);
+		
+		//checks if fullscreen, then fullscreen box is checked
 		if(gc.isFullscreen() == false){
 			pic2.draw(650, 500);
 		}
@@ -65,7 +67,6 @@ public class Menu extends BasicGameState{
 				System.exit(0);
 			}
 		}
-		
 		//fullscreen button
 		if((xpos < 670 && xpos > 645) && (ypos < 110 && ypos > 80)){
 			if(Mouse.isButtonDown(0)){

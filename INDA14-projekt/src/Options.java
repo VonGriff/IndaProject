@@ -23,8 +23,10 @@ public class Options extends BasicGameState{
 		g.drawString("Fullscreen", 650, 520);
 		g.drawString("Back", 200, 500);
 		
-		
+		//ritar upp control options sprite
 		pic1.draw(100, 10);
+		
+		//Kollar om spelet är fullscreen, om fullscreen är fullscreen boxen i checkad.
 		if(gc.isFullscreen() == false){
 			pic2.draw(650, 500);
 		}

@@ -1,4 +1,3 @@
-//import org.lwjgl.input.Keyboard;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
@@ -21,6 +20,8 @@ public class GameOver extends BasicGameState {
 		joker.draw(300, 100);
 		bubble.draw(500, 50);
 		
+		
+		//Ritar score board när spelet är game over
 		g.drawString("Game Over, Bats! \nScore: " + gb.getScore(), 575, 125);
 		
 		g.drawString("1. Retry", 0, 0);

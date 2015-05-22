@@ -70,6 +70,7 @@ public class Play extends BasicGameState{
 			timeSinceMove = 0;
 			gameboard.moveObjects();
 		}
+		
 		//Uppdaterar spelarens koordinater
 		if(player.movePlayer(gc)) {
 			gameboard.swapColumns(player.getLeftHand(), player.getRightHand());
@@ -79,9 +80,7 @@ public class Play extends BasicGameState{
 		if(gameboard.areRowsFull()) {
 			sbg.enterState(3, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 		}
-	}
-
-	
+	}	
 	public int getID(){
 		return 1;
 	}
