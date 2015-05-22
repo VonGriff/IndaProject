@@ -23,9 +23,6 @@ public class GameBoard {
 	 * om objektet inte ï¿½r null sï¿½ ritar den upp bilden pï¿½ den positionen
 	 * som objektet ï¿½r pï¿½.
 	 * 
-	 * att b = 1 i den inre for loopen ger oss en rad ï¿½ver denna som kan agera som en "spawn" punkt,
-	 * fï¿½r nya objekt. Dï¿½r objekten sitter och vï¿½ntar tills inga objekt ï¿½r i rï¿½relse lï¿½ngre, och i sï¿½dana fall
-	 * sï¿½tter den de nya objekten i rï¿½relse.
 	 * @param g
 	 * @throws SlickException
 	 */
@@ -44,7 +41,14 @@ public class GameBoard {
 			}
 		}
 	}
-	
+	/**
+	 * Sätter in det inskickade objektet på den angivna platsen.
+	 * Platsen fås från row och col variablarna.
+	 * @param row
+	 * @param col
+	 * @param object
+	 * @throws SlickException
+	 */
 	public void Insert(int row, int col, GameObject object) throws SlickException{
 		gameboard[col][row] = object;
 	}
@@ -75,9 +79,13 @@ public class GameBoard {
 	}
 	/**
 	 * Itererar ï¿½ver hela spelbrï¿½dets matris och ser vilka objekt som finns och ifall
-	 * de har objekt under sig, ï¿½r det ett null objekt under ett icke null objekt sï¿½ flyttar den det objektet
+	 * de har objekt under sig, om det ett null objekt under ett icke null objekt sï¿½ flyttar den det objektet
 	 * en rad nerï¿½t. Den gï¿½r detta tills dess att den kommit till slutet pï¿½ brï¿½det, eller den stï¿½ter ihop
 	 * med ett annat objekt. Detta ï¿½r kollisionshanteraren i detta program.
+	 * 
+	 * Om ett object har "stannat" så kollar denna metod ifall objektet under är av samma typ som det nyligen fallande
+	 * objektet. Om det är samma så sätts båda dessa till null och score variabeln ökar. Gör en speciell koll för super
+	 * blocken. 
 	 */
 	public void moveObjects() {
 		for(int c = 0; c < gameboard.length; c++) {
@@ -115,7 +123,19 @@ public class GameBoard {
 			}
 		}
 	}
-	
+	/**
+	 * This method takes two integer inputs, the left and the right hand. These
+	 * point to different columns in the matrix that is our playing field.
+	 * 
+	 *  Using these they will swap the rows one by one until it has made it through the entire
+	 *  column. If the object that is supposed to be swaped is moving it will be skipped and remain in
+	 *  the same place as before. If a falling objects neighboring object (the one it will be swaped with) is not null,
+	 *  it will swap the objects. This is so the stacks wont break when you swap with an falling object that has a neighboring
+	 *  object that is not null.
+	 * @param leftHand
+	 * @param rightHand
+	 * @throws SlickException
+	 */
 	public void swapColumns(int leftHand, int rightHand) throws SlickException {
 		int a = leftHand;
 		int b = rightHand;
@@ -143,7 +163,12 @@ public class GameBoard {
 			gameboard[b][i] = tempA;
 		}
 	}
-	
+	/**
+	 * This method searches through the board and checks if there are objects in motion,
+	 * an object is said to be in motion if the current object is not null and the object beneth
+	 * it is equal to null.
+	 * @return
+	 */
 	public boolean hasMovingObjects(){
 		for(int c = 0; c < gameboard.length; c++) {
 			for(int i = gameboard[c].length-2; i >= 0; i--) {
@@ -156,7 +181,12 @@ public class GameBoard {
 		}
 		return false;
 	}
-	
+	/**
+	 * This methods scans the board and looks for moving objects and,
+	 * more importantly, if an object is supposed to be classed as not moving.
+	 * This was sometimes not something that happend directly which resulted in
+	 * some weird gameplay bugs.
+	 */
 	public void stopMoving() {
 		for(int c = 0; c < gameboard.length; c++) {
 			for(int i = gameboard[c].length-2; i >= 0; i--) {
@@ -171,7 +201,13 @@ public class GameBoard {
 	}
 	
 	
-	
+	/**
+	 * This method returns a randomly made GameObject to be inserted into then
+	 * gameboard. The chance for the special figures to be made is smaller than the
+	 * chance for the usual once.
+	 * @return
+	 * @throws SlickException
+	 */
 	public GameObject randomObject() throws SlickException {
 		GameObject temp = null;
 		Image jokerTop = new Image("pics/joker-top.png");

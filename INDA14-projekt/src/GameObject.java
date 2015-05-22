@@ -3,7 +3,6 @@ import org.newdawn.slick.*;
 
 public class GameObject {
 	
-	private int value = 5;
 	private Image image;
 	private BlockType type;
 	private boolean isMovingObject = true;
@@ -14,41 +13,29 @@ public class GameObject {
 		this.type = type;
 	}
 	
-	public int getValue(){
-		return value;
-	}
-	
+	/**
+	 * Returns the image of the object.
+	 * @return
+	 */
 	public Image getImage() {
 		return image;
 	}
 	
-	public int testColour(BlockType type){
-		
-		switch(type) {
-		case JOKERTOP:
-			return 0;
-		case JOKERBOT:
-			return 1;
-		case HEART :
-			return 2;
-		case SPADE :
-			return 3;
-		case CLUBS :
-			return 4;
-		case DIAMOND :
-			return 5;
-		}
-		return -1; //Should never happen.
-	}
 	
 	public void stop(){
 		isMovingObject = false;
 	}
-	
+	/**
+	 * Returns the isMovingObject variable.
+	 * @return
+	 */
 	public boolean isMovingObject(){
 		return isMovingObject;
 	}
-	
+	/**
+	 * Returns the enuem of the object.
+	 * @return
+	 */
 	public BlockType getBlockType(){
 		return type;
 	}
