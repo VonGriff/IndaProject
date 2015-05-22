@@ -62,12 +62,12 @@ public class Play extends BasicGameState{
 			gameboard.moveObjects();
 		}
 		//Uppdaterar spelarens koordinater
-		if  (player.movePlayer(gc)) {
+		if(player.movePlayer(gc)) {
 			gameboard.swapColumns(player.getLeftHand(), player.getRightHand());
 		}
 		
 		//Kollar om det spelet är slut
-		if (gameboard.areRowsFull()) {
+		if(gameboard.areRowsFull()) {
 			sbg.enterState(3, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 		}
 	}

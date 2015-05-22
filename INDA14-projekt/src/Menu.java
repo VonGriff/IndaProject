@@ -3,12 +3,10 @@ import org.newdawn.slick.state.*;
 import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.lwjgl.input.Mouse;
-//import org.lwjgl.input.Keyboard;
 
 
 public class Menu extends BasicGameState{
 	
-	//public String mouse = "No mouse input!";
 	Image pic1, pic2, pic3;
 
 	
@@ -21,16 +19,10 @@ public class Menu extends BasicGameState{
 		pic3 = new Image("pics/fullscreen.png");
 	}
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
-
-		//Input input = gc.getInput();
-		
-		//g.drawString(mouse, 0, 550);
 		g.drawString("1. Play", 320, 300);
 		g.drawString("2. Options", 320, 350);
 		g.drawString("3. Exit", 320, 400);
 		g.drawString("Fullscreen", 650, 520);
-		
-		
 		
 		pic1.draw(250, 10);
 		pic1.setFilter(Image.FILTER_NEAREST);
@@ -45,7 +37,6 @@ public class Menu extends BasicGameState{
 		int xpos = Mouse.getX();
 		int ypos = Mouse.getY();
 		Input input = gc.getInput();
-		//mouse = "Mouse position x: " + xpos + " y: " + ypos;
 		
 		//play button
 		if(input.isKeyPressed(Input.KEY_1)){
@@ -72,9 +63,7 @@ public class Menu extends BasicGameState{
 		if((xpos < 390 && xpos > 315) && (ypos < 205 && ypos > 180)){
 			if(Mouse.isButtonDown(0)){
 				System.exit(0);
-			
 			}
-
 		}
 		
 		//fullscreen button

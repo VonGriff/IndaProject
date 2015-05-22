@@ -8,10 +8,7 @@ public class Options extends BasicGameState{
 
 	Image pic1, pic2, pic3;
 
-	public String mouse = "No input yet!";
 
-
-	//Ska byta bild bara för test
 	
 	public Options(int state){
 	
@@ -23,7 +20,6 @@ public class Options extends BasicGameState{
 	}
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
 		
-		//g.drawString(mouse, 80, 550);
 		g.drawString("Fullscreen", 650, 520);
 		g.drawString("Back", 200, 500);
 		
@@ -40,7 +36,6 @@ public class Options extends BasicGameState{
 		int xpos = Mouse.getX();
 		int ypos = Mouse.getY();
 		Input input = gc.getInput();
-		mouse = "Mouse position x: " + xpos + " y: " + ypos;
 
 		//fullscreen button
 		if((xpos < 670 && xpos > 645) && (ypos < 110 && ypos > 80)){
